@@ -8,15 +8,26 @@
 
 
 <h2>Posts</h2>
+
+<form method="GET" action="{% url 'search_posts' %}" class="search-form">
+    <input type="text" name="query" placeholder="Busca un Post" value="{{ request.GET.query }}">
+    <button type="submit">Buscar</button>
+</form>
+
 <a href="{% url 'create_post' %}" class="lebtn">Crea tu Propio Post</a>
-<ul>
-    {% for post in posts %}
-        <li>
-            <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
-            <p>{{ post.subheader }}</p>
-            <small>Posted by {{ post.author }} on {{ post.created_at }}</small>
-        </li>
-    {% endfor %}
-</ul>
+{% if posts %}
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
+                <p>{{ post.subheader }}</p>
+                <small>Posted by {{ post.author }} on {{ post.created_at }}</small>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="no-posts-message">Oh no, parece que nadia ha publicado nada... Quieres ser el primero?</p>
+{% endif %}
+
 
 {% endblock main %}

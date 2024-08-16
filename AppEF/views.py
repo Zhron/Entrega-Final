@@ -9,8 +9,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-from .forms import SignUpForm
-from .forms import PostForm
+from .forms import PostForm, SignUpForm, SearchForm
 from .models import Post
 #from users.models import Imagen
 
@@ -73,3 +72,15 @@ def delete_post(request, post_id):
         return render(request, 'AppEF/delete_post.html', {'post': post})
     else:
         return HttpResponseForbidden()
+
+
+def search_posts(request):
+    form = SearchForm(request.GET or None)
+    posts = Post.objects.all()
+
+    if form.is_valid():
+        query = form.cleaned_data.get('query')
+        if query:
+            posts = posts.filter(title__icontains=query)  # Search in titles; use __icontains for case-insensitive search
+
+    return render(request, 'AppEF/post_list.html', {'posts': posts, 'form': form})

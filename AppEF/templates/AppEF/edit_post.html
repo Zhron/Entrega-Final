@@ -6,11 +6,11 @@
 
 {% block main %}
 
-<h2>Edit Post</h2>
+<h2>Editar Post</h2>
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="lebtn">Save Changes</button>
+    <button type="submit" class="lebtn">Guardar Cambios</button>
 </form>
 
 

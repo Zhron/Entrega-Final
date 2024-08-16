@@ -31,6 +31,7 @@
                         <li class="nav-item"><a class="nav-link text-white" href="{% url 'Inicio' %}">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link text-white" href="{% url 'About' %}">Acerca de mí</a></li>
                         <li class="nav-item"><a class="nav-link text-white" href="{% url 'post_list' %}">Posts</a></li>
+                        
                         {% if request.user.is_authenticated %}
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
