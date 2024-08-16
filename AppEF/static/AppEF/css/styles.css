@@ -10920,3 +10920,19 @@ header.masthead .bg-circle-4 {
     font-size: 4rem;
   }
 }
+
+.lebtn {
+  background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.lebtn:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,17 @@
+{% extends 'AppEF/base.html' %}
+
+{% load static %}
+
+{% block title %} Inicio {% endblock title %}
+
+{% block main %}
+
+<h2>Estas seguro de que quieres borrar tu Post?</h2>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="lebtn">Si, borrar</button>
+    <a href="{% url 'post_detail' post.pk %}" class="lebtn">Cancelar</a>
+</form>
+
+
+{% endblock main %}

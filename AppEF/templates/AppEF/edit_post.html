@@ -1,0 +1,17 @@
+{% extends 'AppEF/base.html' %}
+
+{% load static %}
+
+{% block title %} Inicio {% endblock title %}
+
+{% block main %}
+
+<h2>Edit Post</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="lebtn">Save Changes</button>
+</form>
+
+
+{% endblock main %}

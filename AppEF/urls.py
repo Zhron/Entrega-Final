@@ -20,4 +20,9 @@ from . import views
 urlpatterns = [
     path('', views.inicio, name="Inicio"),
     path('about/', views.about, name="About"),
+    path('posts/', views.post_list, name='post_list'),
+    path('posts/new/', views.create_post, name='create_post'),
+    path('posts/<int:post_id>/', views.post_detail, name='post_detail'),
+    path('posts/<int:post_id>/edit/', views.edit_post, name='edit_post'),
+    path('posts/<int:post_id>/delete/', views.delete_post, name='delete_post'),
 ]

@@ -1,0 +1,23 @@
+{% extends 'AppEF/base.html' %}
+
+{% load static %}
+
+{% block title %} Inicio {% endblock title %}
+
+{% block main %}
+
+
+<h2>{{ post.title }}</h2>
+<h3>{{ post.subheader }}</h3>
+<p>{{ post.body }}</p>
+{% if post.image %}
+    <img src="{{ post.image.url }}" alt="Image for {{ post.title }}">
+{% endif %}
+<p><small>Posted by {{ post.author }} on {{ post.created_at }}</small></p>
+
+{% if user == post.author or user.is_superuser %}
+    <a href="{% url 'edit_post' post.pk %}" class="lebtn">Editar</a>
+    <a href="{% url 'delete_post' post.pk %}" class="lebtn">Borrar</a>
+{% endif %}
+
+{% endblock main %}
