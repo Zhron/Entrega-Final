@@ -11,7 +11,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from .forms import PostForm, SignUpForm, SearchForm
 from .models import Post
-#from users.models import Imagen
+
 
 
 
@@ -22,9 +22,6 @@ def inicio(request):
 def about(request):
     return render(request, 'AppEF/about.html')
 
-@login_required
-def about(request):
-    return render(request, "AppEF/about.html")
 
 @login_required
 def create_post(request):
