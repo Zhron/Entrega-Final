@@ -11,3 +11,5 @@ En 'Posts' se encuentra un botón para crear nuevos posts, una barra para buscar
 Para crear una cuenta es necesario un nombre de usuario, email, y contraseña. Y solo se puede crear un post si el usuario está iniciado sesión.
 
 Cuando hay un post existente, solo puede ser editado, o borrado, por el usuario autor, o por un administrador.
+
+Es necesario crear las tablas de la base de datos con "python manage.py migrate" antes de iniciar el servidor por primera vez.
