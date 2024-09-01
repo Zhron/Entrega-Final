@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 
-class UserEditForm(UserChangeForm):
+class UserEditForm(forms.ModelForm):
     password = None
     email = forms.EmailField(label="Ingrese su email")
     username = forms.CharField(label="Username", required=False)

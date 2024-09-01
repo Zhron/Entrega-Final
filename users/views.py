@@ -48,10 +48,9 @@ def register(request):
 
 @login_required
 def editar_perfil(request):
-    usuario = request.user
-
+    
     if request.method == 'POST':
-        miFormulario = UserEditForm( instance=usuario)
+        miFormulario = UserEditForm(request.POST, instance=request.user)
         if miFormulario.is_valid():
             print(miFormulario.cleaned_data)
 
@@ -60,9 +59,9 @@ def editar_perfil(request):
             return render(request, "AppEF/index.html")
 
     else:
-        miFormulario = UserEditForm(instance=usuario)
+        miFormulario = UserEditForm(instance=request.user)
 
-    return render(request, "users/editar_usuario.html", {"mi_form": miFormulario, "usuario": usuario})
+    return render(request, "users/editar_usuario.html", {"mi_form": miFormulario, "usuario": request.user})
 
 class CambiarContrasenia(LoginRequiredMixin, PasswordChangeView):
     template_name = "users/editar_pass.html"
